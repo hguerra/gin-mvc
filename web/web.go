@@ -16,7 +16,7 @@ func App() {
 
 	r.Static("/assets", "web/assets")
 
-	r.LoadHTMLGlob("web/templates/**/*")
+	r.LoadHTMLGlob("web/views/**/*")
 
 	routes(r)
 
