@@ -19,7 +19,6 @@ install: devDependencies dependencies
 
 clean:
 	rm -rf ./build
-	rm -rf ./tmp
 
 lint:
 	./bin/golangci-lint run ./...

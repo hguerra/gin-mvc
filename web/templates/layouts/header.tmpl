@@ -1,0 +1,44 @@
+{{define "layouts/header.tmpl"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/assets/bulma.min.css">
+	<title></title>
+</head>
+<body>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/">
+        Home
+      </a>
+
+      <a class="navbar-item" href="/about">
+        About
+      </a>
+
+      <a class="navbar-item" href="/users">
+        Users
+      </a>
+
+      <a class="navbar-item" href="/posts">
+        Posts
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero is-primary">
+  <div class="hero-body">
+    <p class="title">
+      Paginas
+    </p>
+    <p class="subtitle">
+      header.tmpl
+    </p>
+  </div>
+</section>
+  <div class="container">
+{{end}}

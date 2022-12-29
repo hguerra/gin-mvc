@@ -1,0 +1,9 @@
+{{ define "home/index.tmpl" }}
+{{template "layouts/header.tmpl"}}
+  <h1 class="title">
+  {{ .title }}
+</h1>
+<p>{{ .content }}</p>
+</html>
+{{template "layouts/footer.tmpl"}}
+{{ end }}
