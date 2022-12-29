@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func routes(r *gin.Engine) {
+func loadRoutes(r *gin.Engine) {
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",
@@ -29,7 +29,13 @@ func routes(r *gin.Engine) {
 
 	r.GET("/posts", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "posts/index.tmpl", gin.H{
-			"title": "Posts",
+			"title":   "Posts",
+			"content": "This is an index page...",
+			"assets": map[string]string{
+				"javascripts": "dist/assets/index.js",
+				"stylesheets": "dist/assets/index.css",
+				"svg":         "dist/assets/typescript.svg",
+			},
 		})
 	})
 

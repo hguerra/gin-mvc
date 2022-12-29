@@ -1,24 +1,19 @@
 package web
 
 import (
-	"html/template"
-	"strings"
-
 	"github.com/gin-gonic/gin"
 )
 
 func App() {
 	r := gin.Default()
 
-	r.SetFuncMap(template.FuncMap{
-		"upper": strings.ToUpper,
-	})
+	loadTemplateFunc(r)
 
-	r.Static("/assets", "web/assets")
+	loadAssets(r)
 
-	r.LoadHTMLGlob("web/views/**/*")
+	loadViews(r)
 
-	routes(r)
+	loadRoutes(r)
 
 	r.Run()
 }

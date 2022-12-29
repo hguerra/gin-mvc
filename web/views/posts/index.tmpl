@@ -1,7 +1,12 @@
 {{ define "posts/index.tmpl" }}
-<html><h1>
+{{template "layouts/header.tmpl"}}
+  <h1 class="title">
   {{ .title }}
 </h1>
-<p>Using posts/index.tmpl</p>
-</html>
+<p class="color-red">{{ .content }}</p>
+
+<div id="app"></div>
+
+
+{{template "layouts/footer.tmpl" .}}
 {{ end }}
