@@ -31,11 +31,6 @@ func loadRoutes(r *gin.Engine) {
 		c.HTML(http.StatusOK, "posts/index.tmpl", gin.H{
 			"title":   "Posts",
 			"content": "This is an index page...",
-			"assets": map[string]string{
-				"javascripts": "dist/assets/index.js",
-				"stylesheets": "dist/assets/index.css",
-				"svg":         "dist/assets/typescript.svg",
-			},
 		})
 	})
 

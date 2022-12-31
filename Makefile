@@ -9,6 +9,7 @@ devDependencies:
 	curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s
 	curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s
 	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s
+	GOBIN=$(CURRENT_DIR)/bin go install github.com/DarthSim/hivemind@latest
 	asdf reshim golang
 
 dependencies:
@@ -45,4 +46,4 @@ run:
 	go run cmd/web/main.go
 
 runDev:
-	./bin/air -c .air.toml
+	./bin/hivemind Procfile.dev

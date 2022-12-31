@@ -1,0 +1,20 @@
+{
+  "name": "gin-mvc",
+  "version": "1.0.0",
+  "description": "Building assets with esbuild",
+  "scripts": {
+    "build": "node esbuild.config.js",
+    "start": "node esbuild.config.watch.js"
+  },
+  "keywords": [
+    "golang",
+    "gin",
+    "mvc"
+  ],
+  "author": "heitorgcarneiro@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "0.16.12",
+    "esbuild-plugin-manifest": "0.5.0"
+  }
+}

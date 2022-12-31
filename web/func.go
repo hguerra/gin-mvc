@@ -9,7 +9,6 @@ import (
 
 func loadTemplateFunc(r *gin.Engine) {
 	r.SetFuncMap(template.FuncMap{
-		"upper":    strings.ToUpper,
-		"manifest": manifest,
+		"upper": strings.ToUpper,
 	})
 }

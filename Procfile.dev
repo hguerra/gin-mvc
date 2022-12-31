@@ -1,0 +1,2 @@
+web: ./bin/air -c .air.toml
+assets: pnpm start

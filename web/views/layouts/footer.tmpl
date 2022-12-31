@@ -3,15 +3,9 @@
 <br><br>
 
 <p>footer.tmpl</p>
-<p> {{ .assets.javascripts }} </p>
-<p> {{ .assets.stylesheets }} </p>
-<p> {{ .assets.svg }} </p>
 
 </body>
-<script type="text/javascript" src="/assets/javascripts/application.js"></script>
-
-<script type="module" crossorigin src="{{ .assets.javascripts | manifest }}"></script>
-<link rel="stylesheet" href="{{ .assets.stylesheets | manifest }}">
+<script type="text/javascript" src="/assets/dist/bundle.js"></script>
 
 </html>
 {{end}}
