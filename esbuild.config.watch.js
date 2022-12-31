@@ -1,11 +1,15 @@
+const shell = require('shelljs');
 const esbuild = require('esbuild');
+
+shell.rm('-rf', 'build/web');
+shell.mkdir('-p', 'build/tmp');
 
 esbuild.build({
   entryPoints: ['web/assets/javascripts/application.ts'],
   bundle: true,
   sourcemap: true,
   watch: true,
-  outfile: 'web/assets/dist/bundle.js',
+  outdir: 'build/web/assets',
   loader: {
     '.ts': 'ts',
     '.tsx': 'tsx',
@@ -13,4 +17,10 @@ esbuild.build({
     '.png': 'file',
     '.svg': 'file',
   }
-}).catch(() => process.exit(1))
+})
+  .then(() => {
+    shell.ls('web/assets/images/*.{png,svg}').forEach(function (filepath) {
+      shell.cp(filepath, 'build/web/assets/');
+    });
+  })
+  .catch(() => process.exit(1))

@@ -2,6 +2,7 @@ package web
 
 import (
 	"github.com/gin-gonic/gin"
+	"log"
 )
 
 func App() {
@@ -15,5 +16,8 @@ func App() {
 
 	loadRoutes(r)
 
-	r.Run()
+	err := r.Run()
+	if err != nil {
+		log.Fatal(err)
+	}
 }

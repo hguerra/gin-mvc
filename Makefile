@@ -1,6 +1,6 @@
 .PHONY: clean test security build run
 
-APP_NAME := web
+APP_NAME := app
 CURRENT_DIR := $(PWD)
 BUILD_DIR := $(CURRENT_DIR)/build
 
@@ -39,11 +39,14 @@ testCover: clean
 	go tool cover -func $(BUILD_DIR)/coverage/cover.out -o $(BUILD_DIR)/coverage/cover_percentages.out
 	go tool cover -html=$(BUILD_DIR)/coverage/cover.out -o $(BUILD_DIR)/coverage/coverage.html
 
-build:
+build: clean
+	pnpm run build
 	go build -o $(BUILD_DIR)/$(APP_NAME) ./cmd/web/main.go
 
-run:
+run: clean
+	pnpm run build
 	go run cmd/web/main.go
 
-runDev:
+runDev: clean
+	mkdir -p build/tmp
 	./bin/hivemind Procfile.dev
