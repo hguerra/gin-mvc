@@ -6,5 +6,10 @@
 <p class="color-red">{{ .content }}</p>
 <img alt="application logo" src="/assets/logo.png">
 <img alt="random image" src="/assets/gopher.png">
+
+{{template "layouts/_pkg_vue.tmpl"}}
+
+<div id="app">${message}</div>
+
 {{template "layouts/footer.tmpl"}}
 {{ end }}

@@ -1,6 +1,11 @@
-import '../stylesheets/application.css'
-import { data } from './service'
-import { PATH } from 'env'
+import { MyService } from './services/service'
+import { HomeController } from './controllers/home.controller'
 
-console.log(`PATH is ${PATH}`)
-console.log('>>> Load...', data)
+import '../stylesheets/application.css'
+
+function main() {
+  MyService.echo();
+  HomeController.init()
+}
+
+document.addEventListener('DOMContentLoaded', main)
