@@ -1,11 +1,11 @@
-import logoUrl from '../images/logo.png';
+import logoUrl from '../images/logo.png'
 
 type Data = {
-  status: string;
-  logoUrl: string;
+  status: string
+  logoUrl: string
 }
 
 export const data: Data = {
   status: 'success',
-  logoUrl
+  logoUrl,
 }

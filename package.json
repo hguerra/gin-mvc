@@ -4,7 +4,9 @@
   "description": "Building assets with esbuild",
   "scripts": {
     "build": "node esbuild.config.js",
-    "start": "node esbuild.config.watch.js"
+    "start": "node esbuild.config.watch.js",
+    "prettier:format": "prettier --config ./.prettierrc.js --write .",
+    "prettier:check": "prettier --config ./.prettierrc.js --check ."
   },
   "keywords": [
     "golang",
@@ -16,6 +18,7 @@
   "devDependencies": {
     "esbuild": "0.16.12",
     "esbuild-plugin-manifest": "0.5.0",
+    "prettier": "2.8.1",
     "shelljs": "0.8.5"
   }
 }
