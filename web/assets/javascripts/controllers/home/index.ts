@@ -1,8 +1,8 @@
-import Count from './components/Count'
+import App from './components/App'
 
 function init() {
   const { createApp } = Vue
-  const app = createApp(Count)
+  const app = createApp(App)
 
   // If necessary put Vue templates in Go (*.tmpl)
   // app.config.compilerOptions.delimiters = ['${', '}']

@@ -10,6 +10,7 @@ const sharedOptions = {
     '.css': 'css',
     '.png': 'file',
     '.svg': 'file',
+    '.html': 'text'
   },
 }
 
@@ -43,10 +44,8 @@ function copyImagesIgnored(filepath, oldFile) {
   const oldFileExtension = oldFileParts.pop()
   const newHash = new Date().getTime().toString()
   const newFile = `${oldFileParts.join('.')}-${newHash}.${oldFileExtension}`
-
   const oldAsset = `\/assets\/${oldFile}`
   const newAsset = `/assets/${newFile}`
-
   shell.cp(filepath, `build/web/assets/${newFile}`)
   return { oldAsset, newAsset, oldFile, newFile }
 }
