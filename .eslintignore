@@ -1,8 +1,10 @@
-pnpm-lock.yaml
+*.min.css
+*.min.js
 .eslintrc.js
 esbuild.config.js
 esbuild.config.watch.js
 esbuild.shared.js
+pnpm-lock.yaml
 node_modules
 bin
 build

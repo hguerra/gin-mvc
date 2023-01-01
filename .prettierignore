@@ -1,3 +1,5 @@
+*.min.css
+*.min.js
 pnpm-lock.yaml
 node_modules
 bin
