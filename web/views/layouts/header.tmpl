@@ -5,41 +5,44 @@
 	<meta charset="utf-8">
   <link rel="icon" href="/public/images/favicon.ico" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="/assets/application.css">
+	<link rel="stylesheet" href="/public/stylesheets/tailwind.css">
+	<link rel="stylesheet" href="/assets/application.css">
 	<title>My App</title>
 </head>
 <body>
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item" href="/">
-        Home
-      </a>
 
-      <a class="navbar-item" href="/about">
-        About
-      </a>
-
-      <a class="navbar-item" href="/users">
-        Users
-      </a>
-
-      <a class="navbar-item" href="/posts">
-        Posts
-      </a>
+<nav class="navbar bg-base-100">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <label tabindex="0" class="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+      </label>
+      <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/users">Users</a></li>
+        <li><a href="/posts">Posts</a></li>
+      </ul>
     </div>
+    <a class="btn btn-ghost normal-case text-xl" href="/">My App</a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/users">Users</a></li>
+      <li><a href="/posts">Posts</a></li>
+    </ul>
   </div>
 </nav>
 
-<section class="hero is-primary">
-  <div class="hero-body">
-    <p class="title">
-      Paginas
-    </p>
-    <p class="subtitle">
-      header.tmpl
-    </p>
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content text-center">
+    <div class="max-w-md">
+      <h1 class="text-5xl font-bold">Pages</h1>
+      <p class="py-6">header.tmpl</p>
+    </div>
   </div>
-</section>
-  <div class="container">
+</div>
+
 {{end}}

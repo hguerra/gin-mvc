@@ -62,6 +62,8 @@ esbuild
           shell.sed('-i', props.oldAsset, props.newAsset, templatePath)
         }
       })
+
+    shell.rm('-f', `${shared.constants.OUTDIR_ASSETS}/manifest.json`)
   })
   .catch((e) => {
     console.error(e)

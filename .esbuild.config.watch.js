@@ -3,7 +3,20 @@ const esbuild = require('esbuild')
 const shared = require('./.esbuild.shared')
 
 shell.rm('-rf', shared.constants.BUILDDIR)
+shell.mkdir('-p', shared.constants.OUTDIR_PUBLIC)
 shell.mkdir('-p', 'build/tmp')
+
+shell.cp(
+  '-R',
+  `${shared.constants.INDIR_PUBLIC}/images`,
+  `${shared.constants.OUTDIR_PUBLIC}/images`,
+)
+
+shell.cp(
+  '-R',
+  `${shared.constants.INDIR_PUBLIC}/javascripts`,
+  `${shared.constants.OUTDIR_PUBLIC}/javascripts`,
+)
 
 esbuild
   .build({

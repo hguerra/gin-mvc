@@ -6,9 +6,11 @@ import (
 
 func loadAssets(r *gin.Engine) {
 	assetsPath := "web/assets"
+	publicPath := "web/public"
 	if isDev() {
 		assetsPath = "build/web/assets"
+		publicPath = "build/web/public"
 	}
 	r.Static("/assets", assetsPath)
-	r.Static("/public", "web/public")
+	r.Static("/public", publicPath)
 }

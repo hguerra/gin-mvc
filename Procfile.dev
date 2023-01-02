@@ -1,2 +1,3 @@
 web: ./bin/air -c .air.toml
-assets: pnpm dev
+assets: pnpm run dev:js
+tailwind: pnpm run dev:css

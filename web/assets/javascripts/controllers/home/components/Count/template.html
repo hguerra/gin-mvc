@@ -1,4 +1,9 @@
-<div>
-  <p class="Count_color-blue">{{message}}</p>
-  <button @click="plus">Count is: {{count}}</button>
+<div class="card w-96 bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h2 class="card-title">VueJS</h2>
+    <p class="Count_color-blue">{{message}}</p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary" @click="plus">Count is: {{count}}</button>
+    </div>
+  </div>
 </div>
