@@ -5,6 +5,4 @@ function init() {
   BaseController.init('#app', App)
 }
 
-export const HomeController = {
-  init,
-}
+document.addEventListener('DOMContentLoaded', init)

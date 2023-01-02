@@ -1,9 +1,21 @@
-const shell = require('shelljs')
+const entryPoints = require('./.esbuild.bundle.js')
+
+const constants = {
+  INDIR_ASSETS: 'web/assets',
+  INDIR_VIEWS: 'web/views',
+  INDIR_PUBLIC: 'web/public',
+  BUILDDIR: 'build/web',
+  OUTDIR_ASSETS: 'build/web/assets',
+  OUTDIR_VIEWS: 'build/web/views',
+  OUTDIR_PUBLIC: 'build/web/public',
+  PATH_ASSETS: 'assets'
+}
+
 const sharedOptions = {
-  entryPoints: ['web/assets/javascripts/application.ts'],
-  outdir: 'build/web/assets',
+  entryPoints: entryPoints.bundles,
   bundle: true,
   format: 'iife',
+  outdir: constants.OUTDIR_ASSETS,
   loader: {
     '.ts': 'ts',
     '.tsx': 'tsx',
@@ -28,31 +40,8 @@ const envPlugin = {
   },
 }
 
-function getAssetProps(newFilepath) {
-  const directory = newFilepath.split('/')
-  const newFile = directory.pop()
-  const newFileParts = newFile.split('-')
-  newFileParts.pop()
-  const oldFile = `${newFileParts.join('-')}.${newFile.split('.').pop()}`
-  const oldAsset = `\/assets\/${oldFile}`
-  const newAsset = `/assets/${newFile}`
-  return { oldAsset, newAsset, oldFile, newFile }
-}
-
-function copyImagesIgnored(filepath, oldFile) {
-  const oldFileParts = oldFile.split('.')
-  const oldFileExtension = oldFileParts.pop()
-  const newHash = new Date().getTime().toString()
-  const newFile = `${oldFileParts.join('.')}-${newHash}.${oldFileExtension}`
-  const oldAsset = `\/assets\/${oldFile}`
-  const newAsset = `/assets/${newFile}`
-  shell.cp(filepath, `build/web/assets/${newFile}`)
-  return { oldAsset, newAsset, oldFile, newFile }
-}
-
 module.exports = {
+  constants,
   sharedOptions,
   envPlugin,
-  getAssetProps,
-  copyImagesIgnored,
 }

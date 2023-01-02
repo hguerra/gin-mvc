@@ -1,6 +1,7 @@
 const shell = require('shelljs')
 const esbuild = require('esbuild')
 const shared = require('./.esbuild.shared')
+const util = require('./.esbuild.util')
 
 const manifestPlugin = require('esbuild-plugin-manifest')
 
@@ -25,30 +26,34 @@ esbuild
     const assetsProps = []
     const imagesNotCopied = {}
 
-    shell.mkdir('-p', 'build/web')
-    shell.cp('-R', 'web/views', 'build/web/views')
+    shell.mkdir('-p', shared.constants.BUILDDIR)
+    shell.cp('-R',shared.constants.INDIR_VIEWS, shared.constants.OUTDIR_VIEWS)
+    shell.cp('-R',shared.constants.INDIR_PUBLIC, shared.constants.OUTDIR_PUBLIC)
 
-    shell.ls('web/assets/images/*.{png,svg}').forEach((filepath) => {
-      const props = shared.getAssetProps(filepath)
+    shell.ls(`${shared.constants.INDIR_ASSETS}/**/*.{png,svg}`).forEach((filepath) => {
+      const props = util.getAssetProps(filepath)
       imagesNotCopied[props.newFile] = filepath
     })
 
-    shell.ls('build/web/assets/*.{js,css,png,svg}').forEach((filepath) => {
-      const props = shared.getAssetProps(filepath)
+    shell.ls(`${shared.constants.OUTDIR_ASSETS}/**/*.{js,css,png,svg}`).forEach((filepath) => {
+      const props = util.getAssetProps(filepath)
       delete imagesNotCopied[props.oldFile]
       assetsProps.push(props)
     })
 
     for (const oldFile in imagesNotCopied) {
       assetsProps.push(
-        shared.copyImagesIgnored(imagesNotCopied[oldFile], oldFile),
+        util.copyImagesIgnored(imagesNotCopied[oldFile], oldFile),
       )
     }
 
-    shell.ls('build/web/views/*/*.tmpl').forEach((templatePath) => {
+    shell.ls(`${shared.constants.OUTDIR_VIEWS}/**/*.tmpl`).forEach((templatePath) => {
       for (const props of assetsProps) {
         shell.sed('-i', props.oldAsset, props.newAsset, templatePath)
       }
     })
   })
-  .catch(() => process.exit(1))
+  .catch((e) => {
+    console.error(e)
+    process.exit(1)
+  })

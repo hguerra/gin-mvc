@@ -15,8 +15,8 @@ esbuild
     plugins: [shared.envPlugin],
   })
   .then(() => {
-    shell.ls('web/assets/images/*.{png,svg}').forEach((filepath) => {
-      shell.cp(filepath, 'build/web/assets/')
+    shell.ls(`${shared.constants.INDIR_ASSETS}/**/*.{png,svg}`).forEach((filepath) => {
+      shell.cp(filepath, shared.constants.OUTDIR_ASSETS)
     })
   })
   .catch((e) => console.error(e))
