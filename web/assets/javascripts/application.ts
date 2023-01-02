@@ -3,8 +3,7 @@ import '../stylesheets/application.css'
 
 function main() {
   MyService.echo()
-  MyService.requests()
-    .catch((e) => console.error(e));
+  MyService.requests().catch((e) => console.error(e))
 }
 
 document.addEventListener('DOMContentLoaded', main)

@@ -1,7 +1,7 @@
-import axios, {AxiosRequestConfig} from 'axios';
+import axios, { AxiosRequestConfig } from 'axios'
 import { PATH } from 'env'
 import logoUrl from '../../images/logo.png'
-import {HttpService} from "./http.service";
+import { HttpService } from './http.service'
 
 type Data = {
   status: string
@@ -20,7 +20,7 @@ function echo() {
 
 async function requests() {
   const res = await HttpService.get('requests')
-  console.log('>>>', res.data);
+  console.log('>>>', res.data)
 }
 
 export const MyService = {
