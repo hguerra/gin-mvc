@@ -10,7 +10,7 @@ const sharedOptions = {
     '.css': 'css',
     '.png': 'file',
     '.svg': 'file',
-    '.html': 'text'
+    '.html': 'text',
   },
 }
 

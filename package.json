@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "Building assets with esbuild",
   "scripts": {
-    "build": "node esbuild.config.js",
-    "start": "node esbuild.config.watch.js",
+    "build": "node ./.esbuild.config.js",
+    "start": "node ./.esbuild.config.watch.js",
     "format": "prettier --config ./.prettierrc.js --write .",
     "format:check": "prettier --config ./.prettierrc.js --check .",
     "lint": "eslint --config ./.eslintrc.js \"**/*.{js,ts}\" --fix",
-    "lint:check": "eslint --config ./.eslintrc.js \"**/*.{js,ts}\""
+    "lint:check": "eslint --config ./.eslintrc.js \"**/*.{js,ts}\"",
+    "postinstall": "node ./.postinstall.js"
   },
   "keywords": [
     "golang",

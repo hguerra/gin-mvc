@@ -1,6 +1,6 @@
 const shell = require('shelljs')
 const esbuild = require('esbuild')
-const shared = require('./esbuild.shared')
+const shared = require('./.esbuild.shared')
 
 const manifestPlugin = require('esbuild-plugin-manifest')
 

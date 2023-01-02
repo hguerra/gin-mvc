@@ -1,3 +1,7 @@
 {{define "layouts/_pkg_vue.tmpl"}}
-<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+{{ if isDev }}
+<script src="/public/javascripts/vue.global.js"></script>
+{{ else }}
+<script src="/public/javascripts/vue.global.prod.js"></script>
+{{ end }}
 {{end}}
