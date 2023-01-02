@@ -2,7 +2,7 @@ const shell = require('shelljs')
 const esbuild = require('esbuild')
 const shared = require('./.esbuild.shared')
 
-shell.rm('-rf', 'build/web')
+shell.rm('-rf', shared.constants.BUILDDIR)
 shell.mkdir('-p', 'build/tmp')
 
 esbuild
