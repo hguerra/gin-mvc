@@ -11,3 +11,4 @@ build
 coverage
 dist
 cmd
+web/public/*

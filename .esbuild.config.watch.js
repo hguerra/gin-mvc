@@ -15,8 +15,10 @@ esbuild
     plugins: [shared.envPlugin],
   })
   .then(() => {
-    shell.ls(`${shared.constants.INDIR_ASSETS}/**/*.{png,svg}`).forEach((filepath) => {
-      shell.cp(filepath, shared.constants.OUTDIR_ASSETS)
-    })
+    shell
+      .ls(`${shared.constants.INDIR_ASSETS}/**/*.{png,svg}`)
+      .forEach((filepath) => {
+        shell.cp(filepath, shared.constants.OUTDIR_ASSETS)
+      })
   })
   .catch((e) => console.error(e))

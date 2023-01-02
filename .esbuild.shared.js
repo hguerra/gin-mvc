@@ -8,7 +8,7 @@ const constants = {
   OUTDIR_ASSETS: 'build/web/assets',
   OUTDIR_VIEWS: 'build/web/views',
   OUTDIR_PUBLIC: 'build/web/public',
-  PATH_ASSETS: 'assets'
+  PATH_ASSETS: 'assets',
 }
 
 const sharedOptions = {

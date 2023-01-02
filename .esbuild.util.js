@@ -12,9 +12,11 @@ function getAssetProps(newFilepath) {
   let newAsset = `/${shared.constants.PATH_ASSETS}/${newFile}`
 
   if (newFilepath.startsWith(shared.constants.OUTDIR_ASSETS)) {
-    const relativePathParts = directory.join('/').split(shared.constants.PATH_ASSETS);
+    const relativePathParts = directory
+      .join('/')
+      .split(shared.constants.PATH_ASSETS)
     if (relativePathParts.length > 1 && relativePathParts[1]) {
-      const relativePath = relativePathParts[1];
+      const relativePath = relativePathParts[1]
       oldAsset = `/${shared.constants.PATH_ASSETS}${relativePath}/${oldFile}`
       newAsset = `/${shared.constants.PATH_ASSETS}${relativePath}/${newFile}`
     }
