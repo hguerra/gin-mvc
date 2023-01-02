@@ -19,4 +19,4 @@ esbuild
       shell.cp(filepath, 'build/web/assets/')
     })
   })
-  .catch(() => process.exit(1))
+  .catch((e) => console.error(e))
