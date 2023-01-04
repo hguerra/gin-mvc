@@ -16,6 +16,7 @@ dist
 *.log
 coverage.html
 coverage/
+report.xml
 
 # Environment variables
 .env

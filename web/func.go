@@ -8,13 +8,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func isDev() bool {
+func IsDev() bool {
 	return os.Getenv("PROFILE") == "dev"
 }
 
 func loadTemplateFunc(r *gin.Engine) {
 	r.SetFuncMap(template.FuncMap{
-		"isDev": isDev,
+		"isDev": IsDev,
 		"upper": strings.ToUpper,
 	})
 }
