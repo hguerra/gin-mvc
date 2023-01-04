@@ -4,18 +4,18 @@
   "description": "Building assets with esbuild",
   "scripts": {
     "build:js": "node ./.esbuild.config.js",
-    "build:css": "tailwindcss -i ./web/public/stylesheets/tailwind.css -o ./build/web/public/stylesheets/tailwind.css --minify",
+    "build:css": "tailwindcss --config ./.tailwind.config.js -i ./web/public/stylesheets/tailwind.css -o ./build/web/public/stylesheets/tailwind.css --minify",
     "build": "run-s build:js build:css",
     "dev:js": "node ./.esbuild.config.watch.js",
-    "dev:css": "tailwindcss -i ./web/public/stylesheets/tailwind.css -o ./build/web/public/stylesheets/tailwind.css --watch",
+    "dev:css": "tailwindcss --config ./.tailwind.config.js -i ./web/public/stylesheets/tailwind.css -o ./build/web/public/stylesheets/tailwind.css --watch",
     "dev": "run-p dev:js dev:css",
     "format": "prettier --config ./.prettierrc.js --write .",
     "format:check": "prettier --config ./.prettierrc.js --check .",
     "lint": "eslint --config ./.eslintrc.js \"**/*.{js,ts}\" --fix",
     "lint:check": "eslint --config ./.eslintrc.js \"**/*.{js,ts}\"",
     "postinstall": "node ./.postinstall.js",
-    "test": "jest --config ./jest.config.js --detectOpenHandles --forceExit --logHeapUsage",
-    "test:cov": "jest --config ./jest.config.js --coverage --detectOpenHandles --forceExit --logHeapUsage"
+    "test": "jest --config ./.jest.config.js --detectOpenHandles --forceExit --logHeapUsage",
+    "test:cov": "jest --config ./.jest.config.js --coverage --detectOpenHandles --forceExit --logHeapUsage"
   },
   "keywords": [
     "golang",
